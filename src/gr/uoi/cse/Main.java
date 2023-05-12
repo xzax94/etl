@@ -18,8 +18,8 @@ import gr.uoi.cse.netmigration.NetMigrationParser;
 
 public final class Main
 {
-	private static final String COUNTRY_PATH = "countries.csv";
-	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "birth_death_growth_rates.csv";
+	private static final String COUNTRY_PATH = "resources/countries.csv";
+	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "resources/birth_death_growth_rates.csv";
 	
 	public static void main (String ... args)
 	{
