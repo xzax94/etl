@@ -12,6 +12,9 @@ import gr.uoi.cse.crudebirthrate.CrudeBirthRateParser;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRate;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateFileWriter;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateParser;
+import gr.uoi.cse.netmigration.NetMigration;
+import gr.uoi.cse.netmigration.NetMigrationFileWriter;
+import gr.uoi.cse.netmigration.NetMigrationParser;
 
 public final class Main
 {
@@ -23,6 +26,7 @@ public final class Main
 		loadCountries();
 		loadCrudeBirthRates();
 		loadCrudeDeathRates();
+		loadNetMigrations();
 	}
 	
 	private static final void loadCountries()
@@ -49,5 +53,13 @@ public final class Main
 		final List<CrudeDeathRate> crudeDeathRateList = crudeDeathRateParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
 		final CrudeDeathRateFileWriter crudeDeathRateFileWriter = new CrudeDeathRateFileWriter();
 		crudeDeathRateFileWriter.writeToDisk(crudeDeathRateList, "output/crude_death_rates.txt");
+	}
+	
+	private static final void loadNetMigrations()
+	{
+		final NetMigrationParser netMigrationParser = new NetMigrationParser();
+		final List<NetMigration> netMigrationList = netMigrationParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
+		final NetMigrationFileWriter netMigrationFileWriter = new NetMigrationFileWriter();
+		netMigrationFileWriter.writeToDisk(netMigrationList, "output/net_migrations.txt");
 	}
 }
