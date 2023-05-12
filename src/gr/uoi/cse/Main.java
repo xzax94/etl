@@ -12,6 +12,9 @@ import gr.uoi.cse.crudebirthrate.CrudeBirthRateParser;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRate;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateFileWriter;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateParser;
+import gr.uoi.cse.growthrate.GrowthRate;
+import gr.uoi.cse.growthrate.GrowthRateFileWriter;
+import gr.uoi.cse.growthrate.GrowthRateParser;
 import gr.uoi.cse.netmigration.NetMigration;
 import gr.uoi.cse.netmigration.NetMigrationFileWriter;
 import gr.uoi.cse.netmigration.NetMigrationParser;
@@ -31,6 +34,7 @@ public final class Main
 		loadCrudeDeathRates();
 		loadNetMigrations();
 		loadRateNaturalIncreases();
+		parseGrowthRates();
 	}
 	
 	private static final void loadCountries()
@@ -73,5 +77,13 @@ public final class Main
 		final List<RateNaturalIncrease> rateNaturalIncreaseList = RateNaturalIncreaseParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
 		final RateNaturalIncreaseFileWriter rateNaturalIncreaseFileWriter = new RateNaturalIncreaseFileWriter();
 		rateNaturalIncreaseFileWriter.writeToDisk(rateNaturalIncreaseList, "output/rate_natural_increases.txt");
+	}
+	
+	private static final void parseGrowthRates()
+	{
+		final GrowthRateParser growthRateParser = new GrowthRateParser();
+		final List<GrowthRate> growthRateList = growthRateParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
+		final GrowthRateFileWriter growthRateFileWriter = new GrowthRateFileWriter();
+		growthRateFileWriter.writeToDisk(growthRateList, "output/growth_rates.txt");
 	}
 }
