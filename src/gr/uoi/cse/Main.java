@@ -32,7 +32,7 @@ public final class Main
 		final CountryCache countryCache = CountryCache.getInstance();
 		countryCache.addAll(countryList);
 		final CountryFileWriter countryFileWriter = new CountryFileWriter();
-		countryFileWriter.writeToDisk(countryList, "countries.txt");
+		countryFileWriter.writeToDisk(countryList, "output/countries.txt");
 	}
 	
 	private static final void loadCrudeBirthRates()
@@ -40,7 +40,7 @@ public final class Main
 		final CrudeBirthRateParser crudeBirthRateParser = new CrudeBirthRateParser();
 		final List<CrudeBirthRate> crudeBirthRateList = crudeBirthRateParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
 		final CrudeBirthRateFileWriter crudeBirthRateFileWriter = new CrudeBirthRateFileWriter();
-		crudeBirthRateFileWriter.writeToDisk(crudeBirthRateList, "crude_birth_rates.txt");
+		crudeBirthRateFileWriter.writeToDisk(crudeBirthRateList, "output/crude_birth_rates.txt");
 	}
 	
 	private static final void loadCrudeDeathRates()
@@ -48,6 +48,6 @@ public final class Main
 		final CrudeDeathRateParser crudeDeathRateParser = new CrudeDeathRateParser();
 		final List<CrudeDeathRate> crudeDeathRateList = crudeDeathRateParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
 		final CrudeDeathRateFileWriter crudeDeathRateFileWriter = new CrudeDeathRateFileWriter();
-		crudeDeathRateFileWriter.writeToDisk(crudeDeathRateList, "crude_death_rates.txt");
+		crudeDeathRateFileWriter.writeToDisk(crudeDeathRateList, "output/crude_death_rates.txt");
 	}
 }
