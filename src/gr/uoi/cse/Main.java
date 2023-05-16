@@ -12,6 +12,9 @@ import gr.uoi.cse.crudebirthrate.CrudeBirthRateParser;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRate;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateFileWriter;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateParser;
+import gr.uoi.cse.fertilityrate.FertilityRate;
+import gr.uoi.cse.fertilityrate.FertilityRateFileWriter;
+import gr.uoi.cse.fertilityrate.FertilityRateParser;
 import gr.uoi.cse.growthrate.GrowthRate;
 import gr.uoi.cse.growthrate.GrowthRateFileWriter;
 import gr.uoi.cse.growthrate.GrowthRateParser;
@@ -26,6 +29,7 @@ public final class Main
 {
 	private static final String COUNTRY_PATH = "resources/countries.csv";
 	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "resources/birth_death_growth_rates.csv";
+	private static final String AGE_SPECIFIC_FERTILITY_RATES_PATH = "resources/age_specific_fertility_rates.csv";
 	
 	public static void main (String ... args)
 	{
@@ -35,6 +39,7 @@ public final class Main
 		loadNetMigrations();
 		loadRateNaturalIncreases();
 		parseGrowthRates();
+		parseFertilityRates();
 	}
 	
 	private static final void loadCountries()
@@ -85,5 +90,13 @@ public final class Main
 		final List<GrowthRate> growthRateList = growthRateParser.parseDocument(BIRTH_DEATH_GROWTH_RATES_PATH);
 		final GrowthRateFileWriter growthRateFileWriter = new GrowthRateFileWriter();
 		growthRateFileWriter.writeToDisk(growthRateList, "output/growth_rates.txt");
+	}
+	
+	private static final void parseFertilityRates()
+	{
+		final FertilityRateParser fertilityRateParser = new FertilityRateParser();
+		final List<FertilityRate> fertilityRateList = fertilityRateParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
+		final FertilityRateFileWriter fertilityRateFileWriter = new FertilityRateFileWriter();
+		fertilityRateFileWriter.writeToDisk(fertilityRateList, "output/fertility_rates.txt");
 	}
 }

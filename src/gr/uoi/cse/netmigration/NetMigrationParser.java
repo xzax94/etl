@@ -10,7 +10,7 @@ import gr.uoi.cse.parser.Parser;
 public final class NetMigrationParser implements Parser<List<NetMigration>>
 {
 	@Override
-	public List<NetMigration> parseDocument(String path) 
+	public List<NetMigration> parseDocument(String path)
 	{
 		final List<NetMigration> netMigrationList = new ArrayList<>();
 		final LineStringToNetMigrationMapper lineStringToNetMigrationMapper = new LineStringToNetMigrationMapper();
