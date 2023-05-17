@@ -30,6 +30,9 @@ import gr.uoi.cse.netmigration.NetMigrationParser;
 import gr.uoi.cse.ratenaturalincrease.RateNaturalIncrease;
 import gr.uoi.cse.ratenaturalincrease.RateNaturalIncreaseFileWriter;
 import gr.uoi.cse.ratenaturalincrease.RateNaturalIncreaseParser;
+import gr.uoi.cse.sexratioatbirth.SexRatioAtBirth;
+import gr.uoi.cse.sexratioatbirth.SexRatioAtBirthFileWriter;
+import gr.uoi.cse.sexratioatbirth.SexRatioAtBirthParser;
 
 public final class Main
 {
@@ -48,6 +51,7 @@ public final class Main
 		parseFertilityRates();
 		parseFertilityRateTotal();
 		parseGrossReproductionRates();
+		parseSexRatioAtBirth();
 	}
 	
 	private static final void loadCountries()
@@ -122,5 +126,13 @@ public final class Main
 		final List<GrossReproductionRate> grossReproductionRateList = grossReproductionRateParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
 		final GrossReproductionRateFileWriter grossReproductionRateFileWriter = new GrossReproductionRateFileWriter();
 		grossReproductionRateFileWriter.writeToDisk(grossReproductionRateList, "output/gross_reproduction_rates.txt");
+	}
+	
+	private static final void parseSexRatioAtBirth()
+	{
+		final SexRatioAtBirthParser sexRatioAtBirthParser = new SexRatioAtBirthParser();
+		final List<SexRatioAtBirth> sexRatioAtBirthList = sexRatioAtBirthParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
+		final SexRatioAtBirthFileWriter sexRatioAtBirthFileWriter = new SexRatioAtBirthFileWriter();
+		sexRatioAtBirthFileWriter.writeToDisk(sexRatioAtBirthList, "output/sex_ratio_at_birth.txt");
 	}
 }
