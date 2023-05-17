@@ -18,6 +18,9 @@ import gr.uoi.cse.fertilityrate.FertilityRateParser;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotal;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalFileWriter;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalParser;
+import gr.uoi.cse.grossreproductionrate.GrossReproductionRate;
+import gr.uoi.cse.grossreproductionrate.GrossReproductionRateFileWriter;
+import gr.uoi.cse.grossreproductionrate.GrossReproductionRateParser;
 import gr.uoi.cse.growthrate.GrowthRate;
 import gr.uoi.cse.growthrate.GrowthRateFileWriter;
 import gr.uoi.cse.growthrate.GrowthRateParser;
@@ -44,6 +47,7 @@ public final class Main
 		parseGrowthRates();
 		parseFertilityRates();
 		parseFertilityRateTotal();
+		parseGrossReproductionRates();
 	}
 	
 	private static final void loadCountries()
@@ -110,5 +114,13 @@ public final class Main
 		final List<FertilityRateTotal> fertilityRateTotalList = fertilityRateTotalParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
 		final FertilityRateTotalFileWriter fertilityRateTotalFileWriter = new FertilityRateTotalFileWriter();
 		fertilityRateTotalFileWriter.writeToDisk(fertilityRateTotalList, "output/fertility_total_rates.txt");
+	}
+	
+	private static final void parseGrossReproductionRates()
+	{
+		final GrossReproductionRateParser grossReproductionRateParser = new GrossReproductionRateParser();
+		final List<GrossReproductionRate> grossReproductionRateList = grossReproductionRateParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
+		final GrossReproductionRateFileWriter grossReproductionRateFileWriter = new GrossReproductionRateFileWriter();
+		grossReproductionRateFileWriter.writeToDisk(grossReproductionRateList, "output/gross_reproduction_rates.txt");
 	}
 }
