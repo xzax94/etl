@@ -24,6 +24,9 @@ import gr.uoi.cse.grossreproductionrate.GrossReproductionRateParser;
 import gr.uoi.cse.growthrate.GrowthRate;
 import gr.uoi.cse.growthrate.GrowthRateFileWriter;
 import gr.uoi.cse.growthrate.GrowthRateParser;
+import gr.uoi.cse.midyearpopulation.MidyearPopulation;
+import gr.uoi.cse.midyearpopulation.MidyearPopulationFileWriter;
+import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
 import gr.uoi.cse.netmigration.NetMigration;
 import gr.uoi.cse.netmigration.NetMigrationFileWriter;
 import gr.uoi.cse.netmigration.NetMigrationParser;
@@ -39,6 +42,7 @@ public final class Main
 	private static final String COUNTRY_PATH = "resources/countries.csv";
 	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "resources/birth_death_growth_rates.csv";
 	private static final String AGE_SPECIFIC_FERTILITY_RATES_PATH = "resources/age_specific_fertility_rates.csv";
+	private static final String MIDYEAR_POPULATION_PATH = "resources/midyear_population.csv";
 	
 	public static void main (String ... args)
 	{
@@ -52,6 +56,7 @@ public final class Main
 		parseFertilityRateTotal();
 		parseGrossReproductionRates();
 		parseSexRatioAtBirth();
+		parseMidYearPopulation();
 	}
 	
 	private static final void loadCountries()
@@ -134,5 +139,13 @@ public final class Main
 		final List<SexRatioAtBirth> sexRatioAtBirthList = sexRatioAtBirthParser.parseDocument(AGE_SPECIFIC_FERTILITY_RATES_PATH);
 		final SexRatioAtBirthFileWriter sexRatioAtBirthFileWriter = new SexRatioAtBirthFileWriter();
 		sexRatioAtBirthFileWriter.writeToDisk(sexRatioAtBirthList, "output/sex_ratio_at_birth.txt");
+	}
+	
+	private static final void parseMidYearPopulation()
+	{
+		final MidyearPopulationParser midyearPopulationParser = new MidyearPopulationParser();
+		final List<MidyearPopulation> midyearPopulationList = midyearPopulationParser.parseDocument(MIDYEAR_POPULATION_PATH);
+		final MidyearPopulationFileWriter midyearPopulationFileWriter = new MidyearPopulationFileWriter();
+		midyearPopulationFileWriter.writeToDisk(midyearPopulationList, "output/midyear_population.txt");
 	}
 }
