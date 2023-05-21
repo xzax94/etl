@@ -21,6 +21,9 @@ import gr.uoi.cse.fertilityratetotal.FertilityRateTotalParser;
 import gr.uoi.cse.gdptotal.GDPTotal;
 import gr.uoi.cse.gdptotal.GDPTotalFileWriter;
 import gr.uoi.cse.gdptotal.GDPTotalParser;
+import gr.uoi.cse.gnipercapita.GNIPerCapita;
+import gr.uoi.cse.gnipercapita.GNIPerCapitaFileWriter;
+import gr.uoi.cse.gnipercapita.GNIPerCapitaParser;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormation;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationFileWriter;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationParser;
@@ -72,8 +75,9 @@ public final class Main
 //		parseMidYearPopulation();
 //		parseIncomeIndex();
 //		loadLabourShareOfGDP();
-		loadGrossFixedCapitalFormation();
-		loadGDPTotal();
+//		loadGrossFixedCapitalFormation();
+//		loadGDPTotal();
+		loadGNIPerCapita();
 	}
 	
 	private static final void loadCountries()
@@ -196,5 +200,13 @@ public final class Main
 		final List<GDPTotal> gdpTotalList = gdpTotalParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final GDPTotalFileWriter gdpTotalFileWriter = new GDPTotalFileWriter();
 		gdpTotalFileWriter.writeToDisk(gdpTotalList, "output/gdp_total.txt");
+	}
+	
+	private static final void loadGNIPerCapita()
+	{
+		final GNIPerCapitaParser gniPerCapitaParser = new GNIPerCapitaParser();
+		final List<GNIPerCapita> gniPerCapitaList = gniPerCapitaParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final GNIPerCapitaFileWriter gniPerCapitaFileWriter = new GNIPerCapitaFileWriter();
+		gniPerCapitaFileWriter.writeToDisk(gniPerCapitaList, "output/gni_per_capita.txt");
 	}
 }
