@@ -18,6 +18,9 @@ import gr.uoi.cse.fertilityrate.FertilityRateParser;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotal;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalFileWriter;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalParser;
+import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormation;
+import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationFileWriter;
+import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationParser;
 import gr.uoi.cse.grossreproductionrate.GrossReproductionRate;
 import gr.uoi.cse.grossreproductionrate.GrossReproductionRateFileWriter;
 import gr.uoi.cse.grossreproductionrate.GrossReproductionRateParser;
@@ -65,7 +68,8 @@ public final class Main
 //		parseSexRatioAtBirth();
 //		parseMidYearPopulation();
 //		parseIncomeIndex();
-		loadLabourShareOfGDP();
+//		loadLabourShareOfGDP();
+		loadGrossFixedCapitalFormation();
 	}
 	
 	private static final void loadCountries()
@@ -172,5 +176,13 @@ public final class Main
 		final List<LabourShareOfGDP> labourShareOfGDPList = labourShareOfGDPParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final LabourShareOfGDPFileWriter labourShareOfGDPFileWriter = new LabourShareOfGDPFileWriter();
 		labourShareOfGDPFileWriter.writeToDisk(labourShareOfGDPList, "output/labour_share_of_gdp.txt");
+	}
+	
+	private static final void loadGrossFixedCapitalFormation()
+	{
+		final GrossFixedCapitalFormationParser grossFixedCapitalFormationParser = new GrossFixedCapitalFormationParser();
+		final List<GrossFixedCapitalFormation> grossFixedCapitalFormationList = grossFixedCapitalFormationParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final GrossFixedCapitalFormationFileWriter grossFixedCapitalFormationFileWriter = new GrossFixedCapitalFormationFileWriter();
+		grossFixedCapitalFormationFileWriter.writeToDisk(grossFixedCapitalFormationList, "output/gross_fixed_capital_formation.txt");
 	}
 }
