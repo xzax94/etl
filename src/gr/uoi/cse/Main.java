@@ -18,6 +18,9 @@ import gr.uoi.cse.fertilityrate.FertilityRateParser;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotal;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalFileWriter;
 import gr.uoi.cse.fertilityratetotal.FertilityRateTotalParser;
+import gr.uoi.cse.gdptotal.GDPTotal;
+import gr.uoi.cse.gdptotal.GDPTotalFileWriter;
+import gr.uoi.cse.gdptotal.GDPTotalParser;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormation;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationFileWriter;
 import gr.uoi.cse.grossfixedcapitalformation.GrossFixedCapitalFormationParser;
@@ -70,6 +73,7 @@ public final class Main
 //		parseIncomeIndex();
 //		loadLabourShareOfGDP();
 		loadGrossFixedCapitalFormation();
+		loadGDPTotal();
 	}
 	
 	private static final void loadCountries()
@@ -184,5 +188,13 @@ public final class Main
 		final List<GrossFixedCapitalFormation> grossFixedCapitalFormationList = grossFixedCapitalFormationParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final GrossFixedCapitalFormationFileWriter grossFixedCapitalFormationFileWriter = new GrossFixedCapitalFormationFileWriter();
 		grossFixedCapitalFormationFileWriter.writeToDisk(grossFixedCapitalFormationList, "output/gross_fixed_capital_formation.txt");
+	}
+	
+	private static final void loadGDPTotal()
+	{
+		final GDPTotalParser gdpTotalParser = new GDPTotalParser();
+		final List<GDPTotal> gdpTotalList = gdpTotalParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final GDPTotalFileWriter gdpTotalFileWriter = new GDPTotalFileWriter();
+		gdpTotalFileWriter.writeToDisk(gdpTotalList, "output/gdp_total.txt");
 	}
 }
