@@ -24,6 +24,9 @@ import gr.uoi.cse.grossreproductionrate.GrossReproductionRateParser;
 import gr.uoi.cse.growthrate.GrowthRate;
 import gr.uoi.cse.growthrate.GrowthRateFileWriter;
 import gr.uoi.cse.growthrate.GrowthRateParser;
+import gr.uoi.cse.incomeindex.IncomeIndex;
+import gr.uoi.cse.incomeindex.IncomeIndexFileWriter;
+import gr.uoi.cse.incomeindex.IncomeIndexParser;
 import gr.uoi.cse.midyearpopulation.MidyearPopulation;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationFileWriter;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
@@ -43,20 +46,22 @@ public final class Main
 	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "resources/birth_death_growth_rates.csv";
 	private static final String AGE_SPECIFIC_FERTILITY_RATES_PATH = "resources/age_specific_fertility_rates.csv";
 	private static final String MIDYEAR_POPULATION_PATH = "resources/midyear_population.csv";
+	private static final String INCOME_BY_COUNTRY_PATH = "resources/IncomebyCountry.xlsx";
 	
 	public static void main (String ... args)
 	{
 		loadCountries();
-		loadCrudeBirthRates();
-		loadCrudeDeathRates();
-		loadNetMigrations();
-		loadRateNaturalIncreases();
-		parseGrowthRates();
-		parseFertilityRates();
-		parseFertilityRateTotal();
-		parseGrossReproductionRates();
-		parseSexRatioAtBirth();
-		parseMidYearPopulation();
+//		loadCrudeBirthRates();
+//		loadCrudeDeathRates();
+//		loadNetMigrations();
+//		loadRateNaturalIncreases();
+//		parseGrowthRates();
+//		parseFertilityRates();
+//		parseFertilityRateTotal();
+//		parseGrossReproductionRates();
+//		parseSexRatioAtBirth();
+//		parseMidYearPopulation();
+		parseIncomeIndex();
 	}
 	
 	private static final void loadCountries()
@@ -147,5 +152,13 @@ public final class Main
 		final List<MidyearPopulation> midyearPopulationList = midyearPopulationParser.parseDocument(MIDYEAR_POPULATION_PATH);
 		final MidyearPopulationFileWriter midyearPopulationFileWriter = new MidyearPopulationFileWriter();
 		midyearPopulationFileWriter.writeToDisk(midyearPopulationList, "output/midyear_population.txt");
+	}
+	
+	private static final void parseIncomeIndex()
+	{
+		final IncomeIndexParser incomeIndexParser = new IncomeIndexParser();
+		final List<IncomeIndex> incomeIndexList = incomeIndexParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final IncomeIndexFileWriter incomeIndexFileWriter = new IncomeIndexFileWriter();
+		incomeIndexFileWriter.writeToDisk(incomeIndexList, "output/income_index.txt");
 	}
 }

@@ -77,6 +77,18 @@ public final class CountryCache
 		return countryMap.values();
 	}
 	
+	public final Country getCountryByName(String name)
+	{
+		if (name == null || name.isEmpty())
+			return null;
+		
+		return getAllCountries()
+				.stream()
+				.filter(country -> name.equalsIgnoreCase(country.getDisplayName()) || name.equalsIgnoreCase(country.getOfficialName()))
+				.findAny()
+				.orElse(null);
+	}
+	
 	public static final CountryCache getInstance()
 	{
 		return SingletonHolder.INSTANCE;
