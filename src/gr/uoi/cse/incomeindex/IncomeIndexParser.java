@@ -14,7 +14,6 @@ import gr.uoi.cse.parser.Parser;
 public class IncomeIndexParser implements Parser<List<IncomeIndex>>
 {
 	private static final String INCOME_INDEX_SHEET_NAME = "Income Index";
-	private static final int FIRST_ROW_INDEX = 0;
 	
 	@Override
 	public List<IncomeIndex> parseDocument(String path) 
@@ -25,7 +24,7 @@ public class IncomeIndexParser implements Parser<List<IncomeIndex>>
 		{
 			final Sheet sheet = workbook.getSheet(INCOME_INDEX_SHEET_NAME);
 			final XlsxRowToIncomeIndexMapper xlsxRowToIncomeIndexMapper = new XlsxRowToIncomeIndexMapper();
-			final Row firstRow = sheet.getRow(FIRST_ROW_INDEX);
+			final Row firstRow = sheet.getRow(0);
 			
 			for (int i = 1; i <= sheet.getLastRowNum(); i++)
 			{

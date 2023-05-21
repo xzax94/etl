@@ -27,6 +27,9 @@ import gr.uoi.cse.growthrate.GrowthRateParser;
 import gr.uoi.cse.incomeindex.IncomeIndex;
 import gr.uoi.cse.incomeindex.IncomeIndexFileWriter;
 import gr.uoi.cse.incomeindex.IncomeIndexParser;
+import gr.uoi.cse.labourshareofgdp.LabourShareOfGDP;
+import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPFileWriter;
+import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPParser;
 import gr.uoi.cse.midyearpopulation.MidyearPopulation;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationFileWriter;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
@@ -61,7 +64,8 @@ public final class Main
 //		parseGrossReproductionRates();
 //		parseSexRatioAtBirth();
 //		parseMidYearPopulation();
-		parseIncomeIndex();
+//		parseIncomeIndex();
+		loadLabourShareOfGDP();
 	}
 	
 	private static final void loadCountries()
@@ -160,5 +164,13 @@ public final class Main
 		final List<IncomeIndex> incomeIndexList = incomeIndexParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final IncomeIndexFileWriter incomeIndexFileWriter = new IncomeIndexFileWriter();
 		incomeIndexFileWriter.writeToDisk(incomeIndexList, "output/income_index.txt");
+	}
+	
+	private static final void loadLabourShareOfGDP()
+	{
+		final LabourShareOfGDPParser labourShareOfGDPParser = new LabourShareOfGDPParser();
+		final List<LabourShareOfGDP> labourShareOfGDPList = labourShareOfGDPParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final LabourShareOfGDPFileWriter labourShareOfGDPFileWriter = new LabourShareOfGDPFileWriter();
+		labourShareOfGDPFileWriter.writeToDisk(labourShareOfGDPList, "output/labour_share_of_gdp.txt");
 	}
 }
