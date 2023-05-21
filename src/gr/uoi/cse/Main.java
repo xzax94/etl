@@ -12,6 +12,9 @@ import gr.uoi.cse.crudebirthrate.CrudeBirthRateParser;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRate;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateFileWriter;
 import gr.uoi.cse.crudedeathrate.CrudeDeathRateParser;
+import gr.uoi.cse.domesticcredits.DomesticCredits;
+import gr.uoi.cse.domesticcredits.DomesticCreditsFileWriter;
+import gr.uoi.cse.domesticcredits.DomesticCreditsParser;
 import gr.uoi.cse.estimatedgni.EstimatedGNI;
 import gr.uoi.cse.estimatedgni.EstimatedGNIFileWriter;
 import gr.uoi.cse.estimatedgni.EstimatedGNIParser;
@@ -81,7 +84,8 @@ public final class Main
 //		loadGrossFixedCapitalFormation();
 //		loadGDPTotal();
 //		loadGNIPerCapita();
-		loadEstimatedGNI();
+//		loadEstimatedGNI();
+		loadDomesticCredits();
 	}
 	
 	private static final void loadCountries()
@@ -220,5 +224,13 @@ public final class Main
 		final List<EstimatedGNI> estimatedGNIList = estimatedGNIParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final EstimatedGNIFileWriter estimatedGNIFileWriter = new EstimatedGNIFileWriter();
 		estimatedGNIFileWriter.writeToDisk(estimatedGNIList, "output/estimated_gni.txt");
+	}
+	
+	private static final void loadDomesticCredits() 
+	{
+		final DomesticCreditsParser domestisCreditsParser = new DomesticCreditsParser();
+		final List<DomesticCredits> domestisCreditsList = domestisCreditsParser.parseDocument(INCOME_BY_COUNTRY_PATH);
+		final DomesticCreditsFileWriter domesticCreditsFileWriter = new DomesticCreditsFileWriter();
+		domesticCreditsFileWriter.writeToDisk(domestisCreditsList, "output/domestic_credits.txt");
 	}
 }
