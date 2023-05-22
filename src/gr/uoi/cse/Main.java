@@ -66,6 +66,9 @@ import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSexParser;
 import gr.uoi.cse.mortalityrate1to4.MortalityRate1To4;
 import gr.uoi.cse.mortalityrate1to4.MortalityRate1To4FileWriter;
 import gr.uoi.cse.mortalityrate1to4.MortalityRate1To4Parser;
+import gr.uoi.cse.mortalityrate1to4bysex.MortalityRate1To4BySex;
+import gr.uoi.cse.mortalityrate1to4bysex.MortalityRate1To4BySexFileWriter;
+import gr.uoi.cse.mortalityrate1to4bysex.MortalityRate1To4BySexParser;
 import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5;
 import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5FileWriter;
 import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5Parser;
@@ -119,7 +122,8 @@ public final class Main
 //		loadLifeExpectancyBySex();
 //		loadMortalityRateUnder5();
 //		loadMortalityRateUnder5BySex();
-		loadMortalityRate1To4();
+//		loadMortalityRate1To4();
+		loadMortalityRate1To4BySex();
 	}
 	
 	private static final void loadCountries()
@@ -330,5 +334,13 @@ public final class Main
 		final List<MortalityRate1To4> mortalityRate1To4List = mortalityRate1To4Parser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
 		final MortalityRate1To4FileWriter mortalityRate1To4FileWriter = new MortalityRate1To4FileWriter();
 		mortalityRate1To4FileWriter.writeToDisk(mortalityRate1To4List, "output/mortality_rate_1_to_4.txt");
+	}
+	
+	private static final void loadMortalityRate1To4BySex()
+	{
+		final MortalityRate1To4BySexParser mortalityRate1To4BySexParser = new MortalityRate1To4BySexParser();
+		final List<MortalityRate1To4BySex> mortalityRate1To4BySexList = mortalityRate1To4BySexParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
+		final MortalityRate1To4BySexFileWriter mortalityRate1To4BySexFileWriter = new MortalityRate1To4BySexFileWriter();
+		mortalityRate1To4BySexFileWriter.writeToDisk(mortalityRate1To4BySexList, "output/mortality_rate_1_to_4_by_sex.txt");
 	}
 }
