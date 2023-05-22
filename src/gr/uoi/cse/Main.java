@@ -1,6 +1,8 @@
 package gr.uoi.cse;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import gr.uoi.cse.country.Country;
 import gr.uoi.cse.country.CountryCache;
@@ -48,6 +50,9 @@ import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPParser;
 import gr.uoi.cse.midyearpopulation.MidyearPopulation;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationFileWriter;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
+import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSex;
+import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSexFileWriter;
+import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSexParser;
 import gr.uoi.cse.netmigration.NetMigration;
 import gr.uoi.cse.netmigration.NetMigrationFileWriter;
 import gr.uoi.cse.netmigration.NetMigrationParser;
@@ -65,6 +70,8 @@ public final class Main
 	private static final String AGE_SPECIFIC_FERTILITY_RATES_PATH = "resources/age_specific_fertility_rates.csv";
 	private static final String MIDYEAR_POPULATION_PATH = "resources/midyear_population.csv";
 	private static final String INCOME_BY_COUNTRY_PATH = "resources/IncomebyCountry.xlsx";
+	private static final String MIDYEAR_POPULATION_BY_AGE_SEX_PATH = "resources/midyear_population_age_sex.csv";
+	private static final String MIDYEAR_POPULATION_AGE_COUNTRY_CODE_PATH = "resources/midyear_population_age_country_code.csv";
 	
 	public static void main (String ... args)
 	{
@@ -85,7 +92,8 @@ public final class Main
 //		loadGDPTotal();
 //		loadGNIPerCapita();
 //		loadEstimatedGNI();
-		loadDomesticCredits();
+//		loadDomesticCredits();
+		loadMidYearPopulationByAgeSex();
 	}
 	
 	private static final void loadCountries()
@@ -232,5 +240,13 @@ public final class Main
 		final List<DomesticCredits> domestisCreditsList = domestisCreditsParser.parseDocument(INCOME_BY_COUNTRY_PATH);
 		final DomesticCreditsFileWriter domesticCreditsFileWriter = new DomesticCreditsFileWriter();
 		domesticCreditsFileWriter.writeToDisk(domestisCreditsList, "output/domestic_credits.txt");
+	}
+	
+	private static final void loadMidYearPopulationByAgeSex()
+	{
+		final MidYearPopulationByAgeSexParser midYearPopulationByAgeSexParser = new MidYearPopulationByAgeSexParser();
+		final List<MidYearPopulationByAgeSex> midYearPopulationByAgeSexList = midYearPopulationByAgeSexParser.parseDocument(MIDYEAR_POPULATION_BY_AGE_SEX_PATH);
+		final MidYearPopulationByAgeSexFileWriter midYearPopulationByAgeSexFileWriter = new MidYearPopulationByAgeSexFileWriter();
+		midYearPopulationByAgeSexFileWriter.writeToDisk(midYearPopulationByAgeSexList, "output/midyear_population_by_age_sex.txt");
 	}
 }
