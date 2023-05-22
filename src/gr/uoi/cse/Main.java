@@ -51,6 +51,9 @@ import gr.uoi.cse.infantmortalitybysex.InfantMortalityBySexParser;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDP;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPFileWriter;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPParser;
+import gr.uoi.cse.lifeexpectancy.LifeExpectancy;
+import gr.uoi.cse.lifeexpectancy.LifeExpectancyFileWriter;
+import gr.uoi.cse.lifeexpectancy.LifeExpectancyParser;
 import gr.uoi.cse.midyearpopulation.MidyearPopulation;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationFileWriter;
 import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
@@ -99,7 +102,8 @@ public final class Main
 //		loadDomesticCredits();
 //		loadMidYearPopulationByAgeSex();
 //		loadInfantMortality();
-		loadInfantMortalityBySex();
+//		loadInfantMortalityBySex();
+		loadLifeExpectancy();
 	}
 	
 	private static final void loadCountries()
@@ -270,5 +274,13 @@ public final class Main
 		final List<InfantMortalityBySex> infantMortalityBySexList = infantMortalityBySexParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
 		final InfantMortalityBySexFileWriter infantMortalityBySexFileWriter = new InfantMortalityBySexFileWriter();
 		infantMortalityBySexFileWriter.writeToDisk(infantMortalityBySexList, "output/infant_mortality_by_sex.txt");
+	}
+	
+	private static final void loadLifeExpectancy()
+	{
+		final LifeExpectancyParser lifeExpectancyParser = new LifeExpectancyParser();
+		final List<LifeExpectancy> lifeExpectancyList = lifeExpectancyParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
+		final LifeExpectancyFileWriter lifeExpectancyFileWriter = new LifeExpectancyFileWriter();
+		lifeExpectancyFileWriter.writeToDisk(lifeExpectancyList, "output/life_expectancy.txt");
 	}
 }
