@@ -1,8 +1,6 @@
 package gr.uoi.cse;
 
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import gr.uoi.cse.country.Country;
 import gr.uoi.cse.country.CountryCache;
@@ -69,30 +67,29 @@ public final class Main
 	private static final String BIRTH_DEATH_GROWTH_RATES_PATH = "resources/birth_death_growth_rates.csv";
 	private static final String AGE_SPECIFIC_FERTILITY_RATES_PATH = "resources/age_specific_fertility_rates.csv";
 	private static final String MIDYEAR_POPULATION_PATH = "resources/midyear_population.csv";
-	private static final String INCOME_BY_COUNTRY_PATH = "resources/IncomebyCountry.xlsx";
+	private static final String INCOME_BY_COUNTRY_PATH = "resources/Income by Country.xlsx";
 	private static final String MIDYEAR_POPULATION_BY_AGE_SEX_PATH = "resources/midyear_population_age_sex.csv";
-	private static final String MIDYEAR_POPULATION_AGE_COUNTRY_CODE_PATH = "resources/midyear_population_age_country_code.csv";
-	
+
 	public static void main (String ... args)
 	{
 		loadCountries();
-//		loadCrudeBirthRates();
-//		loadCrudeDeathRates();
-//		loadNetMigrations();
-//		loadRateNaturalIncreases();
-//		parseGrowthRates();
-//		parseFertilityRates();
-//		parseFertilityRateTotal();
-//		parseGrossReproductionRates();
-//		parseSexRatioAtBirth();
-//		parseMidYearPopulation();
-//		parseIncomeIndex();
-//		loadLabourShareOfGDP();
-//		loadGrossFixedCapitalFormation();
-//		loadGDPTotal();
-//		loadGNIPerCapita();
-//		loadEstimatedGNI();
-//		loadDomesticCredits();
+		loadCrudeBirthRates();
+		loadCrudeDeathRates();
+		loadNetMigrations();
+		loadRateNaturalIncreases();
+		parseGrowthRates();
+		parseFertilityRates();
+		parseFertilityRateTotal();
+		parseGrossReproductionRates();
+		parseSexRatioAtBirth();
+		parseMidYearPopulation();
+		parseIncomeIndex();
+		loadLabourShareOfGDP();
+		loadGrossFixedCapitalFormation();
+		loadGDPTotal();
+		loadGNIPerCapita();
+		loadEstimatedGNI();
+		loadDomesticCredits();
 		loadMidYearPopulationByAgeSex();
 	}
 	
