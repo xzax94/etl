@@ -9,16 +9,16 @@ import gr.uoi.cse.writer.DiskFileWriter;
 public final class LifeExpectancyBySexFileWriter implements DiskFileWriter<LifeExpectancyBySex>
 {
 	@Override
-	public void writeToDisk(List<LifeExpectancyBySex> LifeExpectancyList , String path) 
+	public void writeToDisk(List<LifeExpectancyBySex> lifeExpectancyList , String path) 
 	{
 		try(final FileWriter fileWriter = new FileWriter(path);
 				final PrintWriter printWriter = new PrintWriter(fileWriter))
 		{
-			final LifeExpectancyBySexToLineStringMapper LifeExpectancyBySexToLineStringMapper = new LifeExpectancyBySexToLineStringMapper();
+			final LifeExpectancyBySexToLineStringMapper lifeExpectancyBySexToLineStringMapper = new LifeExpectancyBySexToLineStringMapper();
 			
-			for (final LifeExpectancyBySex LifeExpectancy : LifeExpectancyList)
+			for (final LifeExpectancyBySex lifeExpectancy : lifeExpectancyList)
 			{
-				String lineToWrite = LifeExpectancyBySexToLineStringMapper.map(LifeExpectancy);
+				String lineToWrite = lifeExpectancyBySexToLineStringMapper.map(lifeExpectancy);
 				lineToWrite = lineToWrite.replaceAll("null", "\\\\N");
 				printWriter.println(lineToWrite);
 			}

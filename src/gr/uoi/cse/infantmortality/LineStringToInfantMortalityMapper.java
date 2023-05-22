@@ -24,13 +24,13 @@ public final class LineStringToInfantMortalityMapper implements Mapper<String, I
 		final Integer year = parseInteger(lineArray[YEAR_INDEX]);
 		final Float rate = parseFloat(lineArray[INFANT_MORTALITY_INDEX]);
 		
-		final InfantMortality midyearPopulation = InfantMortality
+		final InfantMortality infantMortality = InfantMortality
 				.builder()
 				.countryId(country.getId())
 				.year(year)
 				.infantMortality(rate)
 				.build();
 
-		return midyearPopulation;
+		return infantMortality;
 	}
 }

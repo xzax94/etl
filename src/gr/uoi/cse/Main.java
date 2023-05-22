@@ -63,6 +63,12 @@ import gr.uoi.cse.midyearpopulation.MidyearPopulationParser;
 import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSex;
 import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSexFileWriter;
 import gr.uoi.cse.midyearpopulationbyagesex.MidYearPopulationByAgeSexParser;
+import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5;
+import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5FileWriter;
+import gr.uoi.cse.mortalityrateunder5.MortalityRateUnder5Parser;
+import gr.uoi.cse.mortalityrateunder5bysex.MortalityRateUnder5BySex;
+import gr.uoi.cse.mortalityrateunder5bysex.MortalityRateUnder5BySexFileWriter;
+import gr.uoi.cse.mortalityrateunder5bysex.MortalityRateUnder5BySexParser;
 import gr.uoi.cse.netmigration.NetMigration;
 import gr.uoi.cse.netmigration.NetMigrationFileWriter;
 import gr.uoi.cse.netmigration.NetMigrationParser;
@@ -107,7 +113,9 @@ public final class Main
 //		loadInfantMortality();
 //		loadInfantMortalityBySex();
 //		loadLifeExpectancy();
-		loadLifeExpectancyBySex();
+//		loadLifeExpectancyBySex();
+//		loadMortalityRateUnder5();
+		loadMortalityRateUnder5BySex();
 	}
 	
 	private static final void loadCountries()
@@ -294,5 +302,21 @@ public final class Main
 		final List<LifeExpectancyBySex> lifeExpectancyBySexList = lifeExpectancyBySexParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
 		final LifeExpectancyBySexFileWriter lifeExpectancyBySexFileWriter = new LifeExpectancyBySexFileWriter();
 		lifeExpectancyBySexFileWriter.writeToDisk(lifeExpectancyBySexList, "output/life_expectancy_by_sex.txt");
+	}
+	
+	private static final void loadMortalityRateUnder5()
+	{
+		final MortalityRateUnder5Parser mortalityRateUnder5Parser = new MortalityRateUnder5Parser();
+		final List<MortalityRateUnder5> mortalityRateUnder5List = mortalityRateUnder5Parser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
+		final MortalityRateUnder5FileWriter mortalityRateUnder5FileWriter = new MortalityRateUnder5FileWriter();
+		mortalityRateUnder5FileWriter.writeToDisk(mortalityRateUnder5List, "output/mortality_rate_under_5.txt");
+	}
+	
+	private static final void loadMortalityRateUnder5BySex()
+	{
+		final MortalityRateUnder5BySexParser mortalityRateUnder5BySexParser = new MortalityRateUnder5BySexParser();
+		final List<MortalityRateUnder5BySex> mortalityRateUnder5BySexList = mortalityRateUnder5BySexParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
+		final MortalityRateUnder5BySexFileWriter mortalityRateUnder5BySexFileWriter = new MortalityRateUnder5BySexFileWriter();
+		mortalityRateUnder5BySexFileWriter.writeToDisk(mortalityRateUnder5BySexList, "output/mortality_rate_under_5_by_sex.txt");
 	}
 }

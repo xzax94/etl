@@ -7,19 +7,19 @@ public final class LifeExpectancyBySexToLineStringMapper implements Mapper<LifeE
 	private static final String LINE_DELIMETER = ";";
 	
 	@Override
-	public String map(LifeExpectancyBySex LifeExpectancy)
+	public String map(LifeExpectancyBySex lifeExpectancyBySex)
 	{
 		final StringBuilder stringBuilder = new StringBuilder();
-		stringBuilder.append(LifeExpectancy.getCountryId());
+		stringBuilder.append(lifeExpectancyBySex.getCountryId());
 		stringBuilder.append(LINE_DELIMETER);
 		
-		stringBuilder.append(LifeExpectancy.getYear());
+		stringBuilder.append(lifeExpectancyBySex.getYear());
 		stringBuilder.append(LINE_DELIMETER);
 		
-		stringBuilder.append(LifeExpectancy.getSex().toString());
+		stringBuilder.append(lifeExpectancyBySex.getSex().toString());
 		stringBuilder.append(LINE_DELIMETER);
 		
-		stringBuilder.append(LifeExpectancy.getLifeExpectancy());
+		stringBuilder.append(lifeExpectancyBySex.getLifeExpectancy());
 		
 		return stringBuilder.toString();
 	}
