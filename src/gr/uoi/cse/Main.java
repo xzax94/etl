@@ -42,6 +42,9 @@ import gr.uoi.cse.growthrate.GrowthRateParser;
 import gr.uoi.cse.incomeindex.IncomeIndex;
 import gr.uoi.cse.incomeindex.IncomeIndexFileWriter;
 import gr.uoi.cse.incomeindex.IncomeIndexParser;
+import gr.uoi.cse.infantmortality.InfantMortality;
+import gr.uoi.cse.infantmortality.InfantMortalityFileWriter;
+import gr.uoi.cse.infantmortality.InfantMortalityParser;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDP;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPFileWriter;
 import gr.uoi.cse.labourshareofgdp.LabourShareOfGDPParser;
@@ -69,28 +72,30 @@ public final class Main
 	private static final String MIDYEAR_POPULATION_PATH = "resources/midyear_population.csv";
 	private static final String INCOME_BY_COUNTRY_PATH = "resources/Income by Country.xlsx";
 	private static final String MIDYEAR_POPULATION_BY_AGE_SEX_PATH = "resources/midyear_population_age_sex.csv";
-
+	private static final String MORTALITY_LIFE_EXPECTANCY_PATH = "resources/mortality_life_expectancy.csv";
+	
 	public static void main (String ... args)
 	{
 		loadCountries();
-		loadCrudeBirthRates();
-		loadCrudeDeathRates();
-		loadNetMigrations();
-		loadRateNaturalIncreases();
-		parseGrowthRates();
-		parseFertilityRates();
-		parseFertilityRateTotal();
-		parseGrossReproductionRates();
-		parseSexRatioAtBirth();
-		parseMidYearPopulation();
-		parseIncomeIndex();
-		loadLabourShareOfGDP();
-		loadGrossFixedCapitalFormation();
-		loadGDPTotal();
-		loadGNIPerCapita();
-		loadEstimatedGNI();
-		loadDomesticCredits();
-		loadMidYearPopulationByAgeSex();
+//		loadCrudeBirthRates();
+//		loadCrudeDeathRates();
+//		loadNetMigrations();
+//		loadRateNaturalIncreases();
+//		parseGrowthRates();
+//		parseFertilityRates();
+//		parseFertilityRateTotal();
+//		parseGrossReproductionRates();
+//		parseSexRatioAtBirth();
+//		parseMidYearPopulation();
+//		parseIncomeIndex();
+//		loadLabourShareOfGDP();
+//		loadGrossFixedCapitalFormation();
+//		loadGDPTotal();
+//		loadGNIPerCapita();
+//		loadEstimatedGNI();
+//		loadDomesticCredits();
+//		loadMidYearPopulationByAgeSex();
+		loadInfantMortality();
 	}
 	
 	private static final void loadCountries()
@@ -245,5 +250,13 @@ public final class Main
 		final List<MidYearPopulationByAgeSex> midYearPopulationByAgeSexList = midYearPopulationByAgeSexParser.parseDocument(MIDYEAR_POPULATION_BY_AGE_SEX_PATH);
 		final MidYearPopulationByAgeSexFileWriter midYearPopulationByAgeSexFileWriter = new MidYearPopulationByAgeSexFileWriter();
 		midYearPopulationByAgeSexFileWriter.writeToDisk(midYearPopulationByAgeSexList, "output/midyear_population_by_age_sex.txt");
+	}
+	
+	private static final void loadInfantMortality()
+	{
+		final InfantMortalityParser infantMortalityParser = new InfantMortalityParser();
+		final List<InfantMortality> infantMortalityList = infantMortalityParser.parseDocument(MORTALITY_LIFE_EXPECTANCY_PATH);
+		final InfantMortalityFileWriter infantMortalityFileWriter = new InfantMortalityFileWriter();
+		infantMortalityFileWriter.writeToDisk(infantMortalityList, "output/infant_mortality.txt");
 	}
 }
