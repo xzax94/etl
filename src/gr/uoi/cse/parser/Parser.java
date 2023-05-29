@@ -1,7 +1,9 @@
 package gr.uoi.cse.parser;
 
+import java.util.List;
+
 @FunctionalInterface
 public interface Parser<T>
 {
-	T parseDocument(String path);
+	List<T> parseDocument(String path);
 }

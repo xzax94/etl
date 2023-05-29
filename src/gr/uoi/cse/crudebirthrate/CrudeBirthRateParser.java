@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class CrudeBirthRateParser implements Parser<List<CrudeBirthRate>>
+public final class CrudeBirthRateParser implements Parser<CrudeBirthRate>
 {	
 	@Override
 	public List<CrudeBirthRate> parseDocument(String path)

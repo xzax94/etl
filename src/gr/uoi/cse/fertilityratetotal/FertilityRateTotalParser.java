@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class FertilityRateTotalParser implements Parser<List<FertilityRateTotal>>
+public final class FertilityRateTotalParser implements Parser<FertilityRateTotal>
 {
 	@Override
 	public List<FertilityRateTotal> parseDocument(String path) 

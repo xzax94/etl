@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class GrossFixedCapitalFormationParser implements Parser<List<GrossFixedCapitalFormation>>
+public class GrossFixedCapitalFormationParser implements Parser<GrossFixedCapitalFormation>
 {
 	private static final String GROSS_FIXED_CAPITAL_FORMATION_SHEET_NAME = "Gross fixed capital formation";
 	

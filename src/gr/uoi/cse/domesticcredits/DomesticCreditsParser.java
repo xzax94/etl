@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class DomesticCreditsParser implements Parser<List<DomesticCredits>>
+public class DomesticCreditsParser implements Parser<DomesticCredits>
 {
 	private static final String INCOME_INDEX_SHEET_NAME = "Domestic credits";
 	

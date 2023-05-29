@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class IncomeIndexParser implements Parser<List<IncomeIndex>>
+public class IncomeIndexParser implements Parser<IncomeIndex>
 {
 	private static final String INCOME_INDEX_SHEET_NAME = "Income Index";
 	

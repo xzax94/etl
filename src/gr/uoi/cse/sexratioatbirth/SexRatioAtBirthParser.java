@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class SexRatioAtBirthParser implements Parser<List<SexRatioAtBirth>>
+public final class SexRatioAtBirthParser implements Parser<SexRatioAtBirth>
 {
 	@Override
 	public List<SexRatioAtBirth> parseDocument(String path) 

@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class GDPTotalParser implements Parser<List<GDPTotal>>
+public class GDPTotalParser implements Parser<GDPTotal>
 {
 	private static final String GDP_TOTAL_SHEET_NAME = "GDP total";
 	

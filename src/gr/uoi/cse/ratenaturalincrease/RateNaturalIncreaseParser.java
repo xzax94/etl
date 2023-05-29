@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class RateNaturalIncreaseParser implements Parser<List<RateNaturalIncrease>>
+public final class RateNaturalIncreaseParser implements Parser<RateNaturalIncrease>
 {
 	@Override
 	public List<RateNaturalIncrease> parseDocument(String path) 

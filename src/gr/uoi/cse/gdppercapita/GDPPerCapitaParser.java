@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class GDPPerCapitaParser implements Parser<List<GDPPerCapita>>
+public class GDPPerCapitaParser implements Parser<GDPPerCapita>
 {
 	private static final String GDP_PER_CAPITA_SHEET_NAME = "GDP per capita";
 	

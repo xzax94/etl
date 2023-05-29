@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class MidyearPopulationParser implements Parser<List<MidyearPopulation>>
+public final class MidyearPopulationParser implements Parser<MidyearPopulation>
 {
 	@Override
 	public List<MidyearPopulation> parseDocument(String path)

@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class LabourShareOfGDPParser implements Parser<List<LabourShareOfGDP>>
+public final class LabourShareOfGDPParser implements Parser<LabourShareOfGDP>
 {
 	private static final String LABOUR_SHARE_SHEET_NAME = "Labour share of GDP";
 	

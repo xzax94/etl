@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class InfantMortalityBySexParser implements Parser<List<InfantMortalityBySex>>
+public final class InfantMortalityBySexParser implements Parser<InfantMortalityBySex>
 {
 	@Override
 	public List<InfantMortalityBySex> parseDocument(String path)

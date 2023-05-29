@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class GrossReproductionRateParser implements Parser<List<GrossReproductionRate>>
+public final class GrossReproductionRateParser implements Parser<GrossReproductionRate>
 {
 	@Override
 	public List<GrossReproductionRate> parseDocument(String path) 

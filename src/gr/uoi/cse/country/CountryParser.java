@@ -9,7 +9,7 @@ import gr.uoi.cse.idfactory.IdFactory;
 import gr.uoi.cse.idfactory.IntegerIdFactory;
 import gr.uoi.cse.parser.Parser;
 
-public final class CountryParser implements Parser<List<Country>>
+public final class CountryParser implements Parser<Country>
 {	
 	@Override
 	public List<Country> parseDocument(String path)
@@ -34,6 +34,9 @@ public final class CountryParser implements Parser<List<Country>>
 		{
 			e.printStackTrace();
 		}
+		
+		final CountryCache countryCache = CountryCache.getInstance();
+		countryCache.addAll(countryList);
 		
 		return countryList;
 	}

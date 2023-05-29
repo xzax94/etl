@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class NetMigrationParser implements Parser<List<NetMigration>>
+public final class NetMigrationParser implements Parser<NetMigration>
 {
 	@Override
 	public List<NetMigration> parseDocument(String path)

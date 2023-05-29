@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class MidYearPopulationByAgeSexParser implements Parser<List<MidYearPopulationByAgeSex>>
+public final class MidYearPopulationByAgeSexParser implements Parser<MidYearPopulationByAgeSex>
 {
 	@Override
 	public List<MidYearPopulationByAgeSex> parseDocument(String path) 

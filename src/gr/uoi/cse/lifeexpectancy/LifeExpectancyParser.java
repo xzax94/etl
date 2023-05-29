@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class LifeExpectancyParser implements Parser<List<LifeExpectancy>>
+public final class LifeExpectancyParser implements Parser<LifeExpectancy>
 {
 	@Override
 	public List<LifeExpectancy> parseDocument(String path)

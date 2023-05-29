@@ -3,6 +3,7 @@ package gr.uoi.cse.fertilityrate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.StringTokenizer;
 
 import gr.uoi.cse.country.Country;
 import gr.uoi.cse.country.CountryCache;
@@ -55,11 +56,18 @@ public final class LineStringToFertilityRateListMapper implements Mapper<String,
 	
 	private final int getMinAge(String fertilityRateHeader)
 	{
-		return 0; //TODO
+		final StringTokenizer stringTokenizer = new StringTokenizer(fertilityRateHeader, "_");
+		stringTokenizer.nextToken();
+		stringTokenizer.nextToken();
+		return Integer.parseInt(stringTokenizer.nextToken());
 	}
 	
 	private final int getMaxAge(String fertilityRateHeader)
 	{
-		return 0;
+		final StringTokenizer stringTokenizer = new StringTokenizer(fertilityRateHeader, "_");
+		stringTokenizer.nextToken();
+		stringTokenizer.nextToken();
+		stringTokenizer.nextToken();
+		return Integer.parseInt(stringTokenizer.nextToken());
 	}
 }

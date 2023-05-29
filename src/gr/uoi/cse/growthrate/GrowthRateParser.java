@@ -7,7 +7,7 @@ import java.util.List;
 
 import gr.uoi.cse.parser.Parser;
 
-public final class GrowthRateParser implements Parser<List<GrowthRate>>
+public final class GrowthRateParser implements Parser<GrowthRate>
 {
 	@Override
 	public List<GrowthRate> parseDocument(String path) 

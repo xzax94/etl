@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 import gr.uoi.cse.parser.Parser;
 
-public class GNIPerCapitaParser implements Parser<List<GNIPerCapita>>
+public class GNIPerCapitaParser implements Parser<GNIPerCapita>
 {
 	private static final String GNI_PER_CAPITA_SHEET_NAME = "GNI per capita";
 	
