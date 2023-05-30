@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80024
 File Encoding         : 65001
 
-Date: 2023-05-29 19:19:12
+Date: 2023-05-30 20:01:53
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -42,14 +42,14 @@ INSERT INTO `table_metadata` VALUES ('Gross reproduction rate', 'gross_reproduct
 INSERT INTO `table_metadata` VALUES ('Growth rate', 'growth_rate', 'growth_rate');
 INSERT INTO `table_metadata` VALUES ('Income index', 'income_index', 'income_index');
 INSERT INTO `table_metadata` VALUES ('Infant mortality', 'infant_mortality', 'infant_mortality');
-INSERT INTO `table_metadata` VALUES ('Infant mortality by sex', 'infant_mortality_by_sex', 'infant_mortality_by_sex');
+INSERT INTO `table_metadata` VALUES ('Infant mortality by sex', 'infant_mortality_by_sex', 'infant_mortality');
 INSERT INTO `table_metadata` VALUES ('Labour share of GDP', 'labour_share_of_gdp', 'labour_share_of_gdp');
 INSERT INTO `table_metadata` VALUES ('Life expectancy', 'life_expectancy', 'life_expectancy');
-INSERT INTO `table_metadata` VALUES ('Life expectancy by sex', 'life_expectancy_by_sex', 'life_expectancy_by_sex');
+INSERT INTO `table_metadata` VALUES ('Life expectancy by sex', 'life_expectancy_by_sex', 'life_expectancy');
 INSERT INTO `table_metadata` VALUES ('Midyear population', 'midyear_population', 'midyear_population');
 INSERT INTO `table_metadata` VALUES ('Midyear population by age sex', 'midyear_population_by_age_sex', 'midyear_population');
 INSERT INTO `table_metadata` VALUES ('Mortality rate 1 to 4', 'mortality_rate_1_to_4', 'mortality_rate_1_to_4');
-INSERT INTO `table_metadata` VALUES ('Mortality rate 1 to 4 by sex', 'mortality_rate_1_to_4_by_sexmortality_rate_1_to_4', 'mortality_rate_1_to_4');
+INSERT INTO `table_metadata` VALUES ('Mortality rate 1 to 4 by sex', 'mortality_rate_1_to_4_by_sex', 'mortality_rate_1_to_4');
 INSERT INTO `table_metadata` VALUES ('Mortality rate under 5', 'mortality_rate_under_5', 'mortality_rate_under_5');
 INSERT INTO `table_metadata` VALUES ('Mortality rate under 5 by sex', 'mortality_rate_under_5_by_sex', 'mortality_rate_under_5');
 INSERT INTO `table_metadata` VALUES ('Net migration', 'net_migration', 'net_migration');
